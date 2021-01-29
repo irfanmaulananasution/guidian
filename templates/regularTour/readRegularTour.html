@@ -1,0 +1,126 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/read_tour.css' %}"/>
+{% endblock head %}
+
+{% block content %}
+<section >
+    {% for field in idRegTour %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-2">
+                <a href="javascript:history.back()">
+                    <button class="fa fa-chevron-left mt-3" aria-hidden="true" style="font-size: 35px; color: black; background-color:Transparent;"></button>
+                </a>
+            </div>
+
+            <div class="col-6">
+                <h1 class="title-desc text-center" style="padding-left: 200px;">{{ field.destination }}</h1>
+                <br>
+            </div>
+
+            <div class="col-4">
+                {% if user.is_superuser %}
+                <div class="control d-flex flex-row-reverse mt-3">
+                    <div class="mx-2">
+                        <a class="btn btn-outline-danger" href="{% url 'regularTour:deleteRegularTour' field.id %}">Delete</a>
+                    </div>
+                    <div class="mx-2">
+                        <a class="btn btn-outline-primary" href="{% url 'regularTour:updateRegularTour' field.id %}">Edit</a>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="d-flex justify-content-center ">
+        <div class="desc-tour px-5">
+            
+            <div class="d-flex justify-content-center">
+                <img src="{{ field.photo }}" id="img-desc">
+            </div>
+
+            <div class="d-flex justify-content-around text-center mt-4">
+                <div class="detail-desc">
+                    <h3><strong>Distance</strong></h3>
+                    <p>{{ field.distance }}</p>
+                </div>
+
+                <div class="detail-desc">
+                    <h3><strong>Meeting Point</strong></h3>
+                    <p>{{ field.meeting_point }}</p>
+                </div>
+
+                <div class="detail-desc">
+                    <h3><strong>Duration</strong></h3>
+                    <p>{{ field.duration }}</p>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-around text-center">
+                <div class="detail-desc">
+                    <h3><strong>Route</strong></h3>
+                    <p>{{ field.route }}</p>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center" style="overflow: hidden; overflow-y:auto;">
+                <div class="desc-par">
+                    <p>{{ field.description }}</p>
+                </div>
+            </div>
+            <br>
+
+        </div>
+    </div>
+
+    <div class="info" style="background-color: #434242;">
+        <div class="d-flex justify-content-center ">
+            <div class="desc-tour my-4">
+                <div class="map-sched">
+                    <h1 class="title-desc text-center" style="color: white;">Map</h1>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img src="{% static 'image/map.jpg' %}" id="img-desc">
+                </div>
+            </div>
+        </div>
+
+        <div class="ac d-flex align-items-center my-5">
+            <div class="map-sched">
+                <h1 class="title-desc text-center" style="color: white;">Schedule</h1>
+            </div>
+            <div class="">
+                <a href="{% url 'schedule:manage' field.id %}" class="float-left btn btn-outline-primary btn-rounded" style="color: white">
+                    Manage
+                </a>
+            </div>
+            {% if listSchedule %}
+            {% for sched in listSchedule %}
+            <div class="p-3 col-6 d-flex flex-column align-items-center">
+                <div class="accordion">
+                  <div class="accordion-header text-center">{{ sched.date|date:"D - d/m/Y" }} - {{ sched.startTime|time:"H:i" }} | {{ sched.language }}</div>
+                  <div class="accordion-content text-center">
+                      Slot: {{ sched.slot }} | Tour Guide: {{ sched.tourGuide|default:"-" }}
+                      <a href="/regTour/{{sched.regularTour.id}}/{{sched.id}}/booking" class="btn btn-outline-success saveButton mx-3">Booking</a> 
+                  </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <p class="empty-schedule-container">There's no Schedule Yet</p>
+            {% endif %}
+        </div>
+    </div>
+
+    {% endfor %}
+</section>
+
+{% endblock content %}
+{% block script %}
+<script src="{% static 'js/read_tour.js' %}"></script>
+{% endblock script %}

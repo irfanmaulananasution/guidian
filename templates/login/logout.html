@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/auth.css' %}"/>
+{% endblock head %}
+
+{% block content %}
+
+    <div class="logout-container">
+        <h1>Are you sure you want to logout?</h1>
+
+        <div class="button-container row justify-content-center">
+            <a href="javascript:history.back()"><button type="button" class="btn btn-outline-primary m-5 customButton">Cancel</button></a>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" name="logout" class="btn btn-outline-danger m-5 customButton" value="Logout">
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}

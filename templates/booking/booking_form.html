@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block head%}
+    <link rel="stylesheet" href="{% static 'css/booking_form.css' %}"/>
+{%endblock head%}
+
+{% block content %}
+
+<section>
+    {% if limit %}
+    <script>alert("Participants limit exceeded.")</script>  
+    {% endif %}
+    <div class="booking-page">
+
+        <div class="judul d-flex">
+            <div class="col-3 d-flex align-self-start back">
+                <a href="javascript:history.back()"> 
+                    <i class="fa fa-chevron-left f-black" aria-hidden="true" style="font-size:3rem;"></i> 
+                </a>
+            </div>
+            <div class='col-6 text-center'>
+                <p>{{destination}}<br>REGISTRATION FORM</p>
+                <p style="font-size: 1rem">Slot available: {{slot}}</p>
+            </div>
+        </div>
+
+        <div class="container">
+            <form method="POST">
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="row mb-3 d-flex align-items-center">
+                    <div class="col-sm-2 col-form-label label">
+                        {{ field.label }}:
+                    </div>
+                    <div class="col-sm-10">
+                        {{ field }}
+                    </div>
+                </div>
+                {% endfor %}    
+                <div>
+                    <!-- <a href="../regularTour/tour/1" class="btn btn-outline-success saveButton">Save</a> -->
+                    <button type="submit" value="Submit" class="btn btn-outline-success saveButton" style="font-size: 0.8rem;">Submit</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

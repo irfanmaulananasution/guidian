@@ -1,0 +1,86 @@
+body {
+  /* background-image: url("/static/img/homepage-image.png");
+  background-repeat: no-repeat; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.bt-tour {
+  background-color: transparent;
+  border-color: #fafafa;
+  color: white;
+  border-width: 5px;
+  padding: 14px 50px;
+  text-align: center;
+  border-radius: 90px;
+  cursor: pointer;
+  font-family: "Oswald";
+  font-size: 1.5rem;
+}
+
+.landing-cover {
+  height: 75vh;
+  background-image: url("/static/img/homepage-image.png");
+  background-repeat: no-repeat;
+}
+
+.seperator {
+  height: 6.5rem;
+}
+.tour-china {
+  background-color: #c5522e;
+  height: 75vh;
+  width: 100%;
+  font-family: "Oswald";
+  color: white;
+}
+
+.tour-old {
+  background-color: #a14f81;
+  height: 75vh;
+  width: 100%;
+  font-family: "Oswald";
+  color: white;
+}
+
+.bt-china {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 4px 50px;
+  text-align: center;
+  border-radius: 90px;
+  font-family: "Oswald";
+}
+
+#china {
+  background-image: url("/static/img/china.png");
+  background-repeat: no-repeat;
+}
+
+#oldtown {
+  background-image: url("/static/img/oldtown.png");
+  background-repeat: no-repeat;
+}
+
+.gotm {
+  background-color: #434242;
+  height: 100vh;
+}
+
+.guide-photo {
+  border-radius: 50%;
+  width: 200px;
+  margin: 1.5rem;
+}
+
+.border-photo {
+  border-radius: 50%;
+  border: 5px solid white;
+  margin: 10px;
+}
+.guide-desc {
+  color: white;
+  width: 50vw;
+}

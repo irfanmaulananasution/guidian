@@ -1,0 +1,27 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block head%}
+    <link rel="stylesheet" href="{% static 'css/confirmation.css' %}"/>
+{%endblock head%}
+
+{% block content %}
+
+<section class="conf-page">
+    <div class="judul text-center">
+        <h1 style="font-family: 'Oswald';">PLEASE CONFIRM YOUR BOOKING</h1>
+        <hr>
+        <p class='mx-4'>You are <strong>{{book.fullName}}</strong>, booking for <strong>{{book.participants}}</strong> person/people from <strong>{{book.country}}</strong> to
+            our <strong> {{destination}} Tour</strong> on <strong>{{date}} : {{time}}</strong>
+        
+        </p>
+        <hr>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" value="Submit" class="btn btn-outline-success saveButton" style="font-size: 0.8rem;">Confirm</button>
+        </form>
+    </div>
+</section>
+
+{% endblock content %}

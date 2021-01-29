@@ -1,0 +1,17 @@
+.success-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.success-page h1 {
+  font-family: "Oswald";
+  font-size: 3rem;
+}
+
+.success-page p {
+  font-family: "Titillium Web";
+  font-size: 2rem;
+}

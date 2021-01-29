@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+
+.judul {
+  font-family: "Oswald";
+  color: black;
+  text-align: center;
+  margin-left: 2rem;
+  font-size: 4rem;
+}
+
+.createButton {
+  border-width: medium;
+  color: #4b4b4b;
+  font-family: "Oswald";
+  border-radius: 25px;
+}
+
+.saveButton {
+  float: right;
+  border-width: medium;
+  color: #4b4b4b;
+  font-family: "Oswald";
+  border-radius: 25px;
+}
+
+.label {
+  font-family: "Titillium Web";
+  color: black;
+  text-align: left;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+h4 {
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}

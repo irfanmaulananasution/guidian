@@ -1,0 +1,79 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}Manage Schedule{% endblock %}
+
+{% block head %} 
+<link rel="stylesheet" href="{% static 'css/sched.css' %}"/>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+<container>
+    <div style="min-height:475px">
+        {% if request.user.is_superuser == False %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Sorry!</strong> This page only for admin.
+        </div>
+        {% else %}
+        <div class="d-flex justify-content-center">
+            <div class="col-2 d-flex align-self-start pt-1 pb-1 m-14-0">
+                <a style="padding-left:20px;" href="{% url 'regularTour:readRegularTour' id_reg_tour %}"> 
+                    <i class="fa fa-chevron-left f-black" aria-hidden="true" style="font-size:3rem;"></i> 
+                </a>
+            </div>
+            <div class="col-8">
+                <p class="text-center text-uppercase title m-0 p-0 pt-1 pb-1 ">MANAGE SCHEDULE {{ destination }}</p>
+                <div class="acordion md-accordion panel-group" id="accordion">
+                    {% if list_schedule %}
+                    {% for sched in list_schedule %}
+                    <div class="card panel panel-default m-10-0">
+                        <div class="card-header panel-heading">
+                            <h4 class="panel-title" data-toggle="collapse" data-target="#collapse{{ sched.id }}">
+                                <span class="f-titillium"> {{ sched.date|date:"d/m/Y" }} - {{ sched.startTime|time:"H:i" }} | {{ sched.language }} </span>
+                            </h4>
+                        </div>
+                        <div id="collapse{{ sched.id }}" class="panel-collapse collapse">
+                            <div class="card-body panel-body">
+                                <div class="row">
+                                    <div class="col-2 f-black">
+                                        Slot: {{ sched.slot }}
+                                    </div>
+                                    <div class="col-4 f-black">
+                                        Tour Guide: {{ sched.tourGuide|default:"-" }}
+                                    </div>
+                                    <div class="col-2">
+                                        <a href="../../booking/{{sched.regularTour.id}}/{{sched.id}}" class="float-right btn btn-outline-info btn-rounded f-black">
+                                            <i class="fa fa-users"></i> Peserta
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a href="{% url 'schedule:update' id_reg_tour sched.id %}" class="float-right btn btn-outline-primary btn-rounded f-black">
+                                            <i class="fa fa-pencil"></i> Edit
+                                        </a>
+                                    </div>
+                                    <div class="col-2">
+                                        <a href="{% url 'schedule:delete' id_reg_tour sched.id %}" class="float-right btn btn-outline-danger btn-rounded f-black">
+                                            <i class="fa fa-times"></i> Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% else %}
+                    <p class="empty-schedule-container">There's no Schedule Yet</p>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-2">
+                <a href="{% url 'schedule:create' id_reg_tour %}" class="float-left mt-3 btn btn-outline-primary btn-rounded f-black">
+                    Create
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+<container>
+{% endblock content %}

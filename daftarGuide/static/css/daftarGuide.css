@@ -1,0 +1,45 @@
+
+.createGuideButton {    
+    border-width:medium;
+    border-radius: 25px;
+    width:125px;
+    height:50px;
+    color:#434242;
+    font-family:'Oswald';
+}
+
+.guideRow {
+    height : 250px;
+    background-color: #434242;
+}
+
+.guideName{
+    font-family: 'Oswald';
+    font-size:xx-large;
+    color: white;
+}
+
+.guideLanguage{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: white;
+    font-family: 'Titillium Web';
+}
+
+.guideDescription {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    font-family: 'Titillium Web';
+    color: white;
+}
+
+.guidePhoto {
+    height:120px;
+    width:120px;
+    border-width: medium;
+    border-radius: 10px;
+}

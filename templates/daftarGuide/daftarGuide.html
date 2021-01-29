@@ -1,0 +1,53 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+Daftar Guide
+{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/daftarGuide.css' %}"/>
+<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+{% endblock head %}
+
+{% block content %}
+
+<div class="d-flex flex-column mx-5">
+    <div class="d-flex flex-row justify-content-between mx-5 mt-2">
+        <button class="btn fa fa-chevron-left mx-4" aria-hidden="true" style="font-size: 35px; color: black; background-color:Transparent;"></button>
+        {% if user.is_superuser %}
+        <a href="/daftarGuide/createGuide"><button type="button" class="btn btn-outline-primary mx-4 createGuideButton">Create</button></a>
+        {% else %}
+        <br>
+        {% endif %}
+    </div>
+
+    <div class="d-flex flex-row m-5">
+        <div class="table-responsive">
+            <table class="table">
+                {% if guides %}
+                {% for guide in guides %}
+                <tr>                    
+                    <td>
+                        <a href="/daftarGuide/readGuide/{{ guide.user.username }}"><div class="d-flex flex-row justify-content-between guideRow">
+                            <div class="informationColumn m-4">
+                                <p class="guideName">{{ guide.fullName }}</p>
+                                <p class="guideLanguage">{{ guide.language }}</p>
+                                <p class="guideDescription">{{ guide.description }}</p>   
+                            </div>
+                            <div class="utilityColumn d-flex flex-column justify-content-center m-4">
+                                <img class="guidePhoto m-1" src="/media/{{ guide.profilePicture }}">
+                            </div>
+                        </div></a>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                <p class="empty-schedule-container">There's no Guide Yet</p>
+                {% endif %}
+            </table>
+        </div>
+    </div>
+</div>    
+
+{% endblock content %}

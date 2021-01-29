@@ -1,0 +1,70 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <title>{% block title %}{% endblock  %}</title>
+        {%block head%}
+        {%endblock head%}
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg">
+            <a class="navbar-brand title" href="{% url 'homepage' %}">GUIDIAN</a>
+            <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse nav-content d-flex flex-row justify-content-between" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <div class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle menu" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Tours
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="{% url 'regularTour:listRegularTour' %}">Regular Tour</a>
+                        <a class="dropdown-item" href="#">Private Tour</a>
+                    </div>
+                </div>
+                
+                <a class="nav-item nav-link menu" href="/daftarGuide">Guide</a>
+              </div>
+              <div class="navbar-nav">
+                  {% if request.user.is_authenticated %}
+                  <a class="nav-item nav-link menu" href="/auth/logout">Logout</a>
+                  {% else %}
+                  <a class="nav-item nav-link menu" href="/auth/logout">Login</a>
+                  {% endif %}
+              </div>
+              
+
+            </div>
+            
+          </nav>
+
+        {% block content %}
+        {% endblock content %}
+
+        <div class="footer">
+          <p>© 2020 Guidian<br>All rights reserved.</p>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    
+        {% block script %}
+        {% endblock script %}
+
+
+      </body>
+    </body>
+</html>

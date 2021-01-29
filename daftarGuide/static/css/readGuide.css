@@ -1,0 +1,29 @@
+.guidePhoto {
+    min-width:210px;
+    min-height:210px;
+    max-width:210px;
+    max-height:210px;
+    border-style:solid ;
+    border-width:medium;
+    padding:25px;
+}
+
+.guideName {
+    font-size:300%;
+    font-weight: bold;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-family: 'Titillium Web';
+}
+
+.editGuideButton{
+    color:#434242;
+    background-color:transparent;
+    font-family:'Oswald';
+    border-width:medium;
+    border-radius: 25px;
+    width:125px;
+    height:50px;
+}

@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block head%}
+<link rel="stylesheet" href="{% static 'css/homepage.css' %}"/>
+{%endblock head%}
+
+{% block content %}
+<section >
+    <div class="landing-cover d-flex justify-content-center align-items-center">
+        <a href="regularTour/listRegularTour/">
+            <button href="" class="bt-tour">
+                TOURS
+            </button>
+        </a>
+        
+    </div>
+    <div class="seperator"></div>
+    <div class="tour-china row mx-0 ">
+        <div class="col text-center align-self-center">
+                <h1 style="font-size:4rem;">CHINA TOWN</h1>
+            <div class="row justify-content-center">
+                <a class="bt-china text-center" href="tour/1">MORE</a>
+            </div>
+        </div>
+        <div class="col" id="china"></div>
+    </div>
+
+    <div class="tour-old d-flex row mx-0">
+        <div class="col" id="oldtown"></div>
+        <div class="col text-center align-self-center">
+            <h1 style="font-size:4rem;">OLD TOWN</h1>
+            <div class="row justify-content-center">
+                <a class="bt-china text-center" href="tour/1">MORE</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="seperator"></div>
+    
+    <div class="gotm d-flex align-items-center flex-column justify-content-center">
+        <h1 style="font-size:4rem; font-family: 'Oswald'; color:white" class="text-center">GUIDE OF THE MONTH</h1>
+        <div class="d-flex justify-content-center border-photo" >
+            <img src="{% static 'img/eamon.jpg' %}" class="guide-photo">
+        </div>
+        <div class="text-center guide-desc">
+            <h2 style="font-family: 'Oswald';">Eamon 'Joko' Subianto</h2>
+            <p style="font-family: 'Titillium Web';">
+                Baik hati, ramah tamah, tidak sombong, tampan, dan berani adalah kata kata yang muncul pada review Joko. dedikasi nya dalam menjadi guide yang baik telah membuat nya menjadi guide of the month this month Yuhuu! Baik hati, ramah tamah, tidak sombong, tampan, dan berani adalah kata kata yang muncul pada review Joko. dedikasi nya dalam menjadi guide yang baik telah membuat nya menjadi guide of the month this month Yuhuu! 
+            </p>
+        </div>
+    </div>
+    
+    <div class="seperator"></div>
+
+</section> 
+{% endblock content %}

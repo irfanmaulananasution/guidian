@@ -1,0 +1,59 @@
+.f-white{
+    color:white;
+}
+
+.f-black{
+    color:black;
+}
+
+.f-titillium{
+    font-family: Titillium Web;
+    font-weight: bold;
+}
+
+.bg-darken{
+    background-color: #434242;
+}
+
+.btn-rounded{
+    border-width:medium;
+    font-family:'Oswald';
+    border-radius: 25px;
+    padding: 6px 20px;
+}
+
+.p-0-15{
+    padding: 0px 15px;
+}
+
+.p-7-15{
+    padding: 7px 15px;
+}
+
+.m-10-0{
+    margin: 10px 0px; 
+}
+
+.m-14-0{
+    margin: 14px 0px; 
+}
+
+a, a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}
+
+.panel-title {
+  position: relative;
+}
+  
+.panel-title::after {
+	content: "\f078";
+	position: absolute;
+	right: 0px;
+    font-family: "FontAwesome"
+}
+
+.panel-title[aria-expanded="true"]::after {
+	content: "\f077";
+}

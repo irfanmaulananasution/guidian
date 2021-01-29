@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{% static 'css/regularTour.css' %}"/>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <a href="{% url 'homepage' %}">
+                    <button class="btn fa fa-chevron-left mt-3" aria-hidden="true" style="font-size: 35px; color: black; background-color:Transparent;"></button>
+                </a>
+            </div>
+
+            <div class="col-6">
+                <p class="judul" style="padding-right: 10px;">LIST REGULAR TOUR</p>
+                <br>
+            </div>
+
+            {% if user.is_superuser %}
+            <div class="col-2" style="padding-top: 40px; padding-left: 120px; padding-right: 0px;">
+                <a href="{% url 'regularTour:createRegularTour' %}" class="btn btn-outline-primary ml-5 createButton">Create</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {% for field in lists %}
+    <div class="container">
+        <a href="{% url 'regularTour:readRegularTour' field.id %}">
+            <div class="card mb-3" style="max-width: 100%; background-color:#EAEAEA;">
+                <div class="row g-0">
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ field.destination }}</h4>
+
+                            <div class="row">
+                                <div class="col-2">
+                                    <p class="card-text"><small class="text-muted">{{ field.duration }} hours</small></p>
+                                </div>
+                                <div class="col-2">
+                                    <p class="card-text"><small class="text-muted">{{ field.distance }} kms</small></p>
+                                </div>
+                                <div class="col">
+                                    <p class="card-text"><small class="text-muted">{{ field.meeting_point }}</small></p>
+                                </div>
+                            </div>
+
+                            <p class="card-text" style="margin-top: 15px;">{{ field.description }}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <img class="img-fluid" src="{{ field.photo }}" alt="Photo">
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    <br>
+    {% endfor %}
+</body>
+
+{% endblock content %}

@@ -1,0 +1,81 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block head%}
+    <link rel="stylesheet" href="{% static 'css/read_booking.css' %}"/>
+{%endblock head%}
+
+{% block content %}
+
+<section>
+    <div class="read-page">
+
+        {% if user.is_superuser %}
+        <div class="judul d-flex">
+            <div class="col-3 d-flex align-self-start back">
+                <a href="javascript:history.back()"> 
+                    <i class="fa fa-chevron-left f-black" aria-hidden="true" style="font-size:3rem;"></i> 
+                </a>
+            </div>
+            <div class='col-6 text-center'>
+                <h1>Registrant for<br>{{destination}}</h1>
+                <br>
+                <p>Time: {{time}} | Language: {{language}} | Slot Available: {{slot}}</p>
+                <br>
+            </div>
+        </div>
+
+        <table class='text-center table table-striped'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Mail</th>
+                    <th>Participants</th>
+                    <th>Country</th>
+                    <th>Phone</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            {% if empty %}
+            <tbody>
+                <tr>
+                    <td colspan="7">No participants yet.</td>
+                </tr>
+            </tbody>
+            {%else%}
+            <tbody>
+                {% for i in confirmed_participants %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.fullName}}</td>
+                    <td>{{i.mail}}</td>
+                    <td>{{i.participants}}</td>
+                    <td>{{i.country}}</td>
+                    <td>{{i.phone}}</td>
+                    <td>
+                        <a href="/booking/{{i.id}}/delete"><button> Delete</button></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            {%endif%}
+        </table>
+         
+        {%else%}
+        <div class="judul d-flex">
+            <div class="col-3 d-flex align-self-start back">
+                <a href="javascript:history.back()"> 
+                    <i class="fa fa-chevron-left f-black" aria-hidden="true" style="font-size:3rem;"></i> 
+                </a>
+            </div>
+            <div class='col-6 text-center'>
+                <p>Only admin can do this action.</p>
+                <br>
+            </div>
+        </div>
+        {%endif%}
+    </div>
+</section>
+
+{% endblock content %}

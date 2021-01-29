@@ -1,0 +1,112 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+Daftar Guide
+{% endblock title %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/readGuide.css' %}"/>
+<link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+{% endblock head %}
+
+{% block content %}
+
+<div class="d-flex flex-column mx-5" style="margin-bottom:10%;">
+    <div class="d-flex flex-row justify-content-between mx-5 mt-2">
+        <a href="/daftarGuide"><button class="btn fa fa-chevron-left mx-4" aria-hidden="true" style="font-size: 35px; color: black; background-color:Transparent;"></button></a>
+        <h1><b>DETAIL GUIDE</b></h1>
+        {% if editButtonPermission %}
+        <a href="/daftarGuide/editGuide/{{ guide.user.username }}"><button type="button" class="btn btn-outline-primary mt-3 mx-5 editGuideButton">Edit</button></a>
+        {% else %}
+        <br>
+        {% endif %}
+    </div>
+
+    <div class="d-flex flex-row" style="margin: 0% 10%;">
+        <img class="rounded-circle mx-1 guidePhoto" src="/media/{{ guide.profilePicture }}">
+        <p class="guideName mx-3 d-flex align-items-center">{{ guide.fullName }}</p>
+    </div>
+    
+    <div class="d-flex flex-row" style="margin: 0% 10%;">
+        <table class="table">
+            <tr>
+                <td>
+                    <p>Email</p>
+                </td>
+                <td>  
+                    <p> : </p>
+                </td>
+                <td>
+                    {% if guide.user.email %}
+                    <p> {{ guide.user.email }}</p>
+                    {% else %}
+                    <p> - </p>
+                    {% endif %}                   
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    <p>Language</p>
+                </td>
+                <td>
+                    <p> : </p>
+                </td>
+                <td>
+                    {% if guide.language %}
+                    <p> {{ guide.language }}</p>
+                    {% else %}
+                    <p> - </p>
+                    {% endif %}     
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    <p>Total Tour</p>
+                </td>
+                <td>
+                    <p> : </p>
+                </td>
+                <td>
+                    {% if guide.totalTour %}
+                    <p> {{ guide.totalTour }}</p>
+                    {% else %}
+                    <p> - </p>
+                    {% endif %}     
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    <p>Schedule Available</p>
+                </td>
+                <td>
+                    <p> : </p>
+                </td>
+                <td style="min-width:70%;max-width:70%;">
+                    {% if guide.scheduleAvailable %}
+                    <p> {{ guide.scheduleAvailable }}</p>
+                    {% else %}
+                    <p> - </p>
+                    {% endif %}     
+                </td>            
+            </tr>
+            <tr>
+                <td>
+                    <p>Description</p>
+                </td>
+                <td>
+                    <p> : </p>
+                </td>
+                <td style="min-width:70%;max-width:70%;">
+                    {% if guide.description %}
+                    <p> {{ guide.description }}</p>
+                    {% else %}
+                    <p> - </p>
+                    {% endif %}     
+                    <p> {{ guide.description }} </p>
+        </table>
+    </div>
+</div>    
+
+{% endblock content %}
+

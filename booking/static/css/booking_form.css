@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap");
+
+.judul {
+  font-family: "Oswald";
+  color: black;
+  font-size: 4rem;
+  height: 25vh;
+}
+
+.saveButton {
+  float: right;
+  border-width: medium;
+  color: #4b4b4b;
+  font-family: "Oswald";
+  border-radius: 25px;
+}
+
+.label {
+  font-family: "Titillium Web";
+  color: black;
+  text-align: left;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 30px;
+}
+
+.booking-page {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+.judul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.back {
+  margin-left: 3rem;
+}
+
+.f-black {
+  color: black;
+}

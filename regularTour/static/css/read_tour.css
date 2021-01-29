@@ -1,0 +1,105 @@
+.control {
+  height: 10vh;
+}
+
+.btn {
+  background-color: transparent;
+  color: #4b4b4b;
+  padding: 5px 40px;
+  text-align: center;
+  border-radius: 25px;
+  font-family: "Oswald";
+  border-width: medium;
+}
+
+.title-desc {
+  font-family: "Oswald";
+  font-size: 4rem;
+}
+
+#img-desc {
+  width: 400px;
+}
+
+.detail-desc {
+  font-family: "Titillium Web";
+}
+
+.desc-par {
+  max-width: 50vw;
+}
+
+.desc-tour {
+  width: 50vw;
+}
+
+.accordion {
+  border-radius: 15px;
+  width: 90%;
+  background: #ffffff;
+  margin: 0 auto;
+  font-family: "Titillium Web";
+  font-size: 1.5rem;
+}
+
+.accordion-header {
+  border-radius: 15px;
+  border-bottom: 1px solid whitesmoke;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
+  padding: 1.5rem;
+}
+
+.accordion-header:hover {
+  background: #eaeaea;
+}
+
+.accordion-content {
+  border-radius: 15px;
+  display: none;
+  background: #eaeaea;
+  padding: 1.5rem;
+  color: black;
+}
+
+.accordion-header::before {
+  border-radius: 15px;
+  content: "";
+  vertical-align: middle;
+  display: inline-block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: white;
+  margin-right: 0.75rem;
+}
+
+.active.accordion-header::before {
+  border-radius: 15px;
+  background-color: #696969;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ac {
+  display: flex;
+  flex-direction: column;
+}
+
+.saveButton {
+  float: right;
+  border-width: medium;
+  color: #4b4b4b;
+  font-family: "Oswald";
+  border-radius: 25px;
+}
+
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{%block head%}
+    <link rel="stylesheet" href="{% static 'css/booking_success.css' %}"/>
+{%endblock head%}
+
+{% block content %}
+
+<section>
+    <div class="success-page">
+        <div><h1>Booked!</h1></div>
+        <div><p>Kindly check your email for confirmation (｡･∀･)ﾉﾞ</p></div>
+    </div>
+</section>
+
+{% endblock content %}
